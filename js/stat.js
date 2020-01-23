@@ -6,9 +6,10 @@ var CLOUD_COORD_Y = 10;
 var CLOUD_WIDTH = 420;
 var CLOUD_HEIGHT = 270;
 var CONGRATULATION_TEXT = 'Ура, вы победили!\nСписок результатов:';
-var CLOUD_FONT_FAMILY = 'PT Mono';
-var CLOUD_FONT_SIZE = '16px';
-var TEXT_COLOR = 'rgba(0, 0, 0, 1)';
+var FONT_FAMILY = 'PT Mono';
+var FONT_SIZE = '16px';
+var FONT_COLOR = 'rgba(0, 0, 0, 1)';
+var FONT_GAP = 15;
 var CLOUD_PADDING = 20;
 var CLOUD_TEXT_PADDING = 30;
 var CLOUD_CONVEX_SIZE = 10;
@@ -65,7 +66,7 @@ window.renderStatistics = function (ctx, names, times) {
   renderCongratulation(
     ctx,
     strings,
-    {size: CLOUD_FONT_SIZE, family: CLOUD_FONT_FAMILY, color: TEXT_COLOR},
+    {size: FONT_SIZE, family: FONT_FAMILY, color: FONT_COLOR},
     {x: CLOUD_COORD_X + CLOUD_TEXT_PADDING, y: CLOUD_COORD_Y + CLOUD_PADDING}
   );
 
