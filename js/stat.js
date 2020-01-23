@@ -5,7 +5,7 @@ var CLOUD_COORD_X = 100;
 var CLOUD_COORD_Y = 10;
 var CLOUD_WIDTH = 420;
 var CLOUD_HEIGHT = 270;
-var CLOUD_TEXT = 'Ура, вы победили! \nСписок результатов: ';
+var CONGRATULATION_TEXT = 'Ура, вы победили!\nСписок результатов:';
 var CLOUD_FONT_FAMILY = 'PT Mono';
 var CLOUD_FONT_SIZE = '16px';
 var TEXT_COLOR = 'rgba(0, 0, 0, 1)';
@@ -28,7 +28,6 @@ var getRandomNumber = function (min, max) {
   return min + Math.floor(Math.random() * (max + 1 - min));
 };
 
-// 1. Отрисовать текст поздравительного сообщения
 // 2. Отрисовать гистограмму
 
 // Для выбора цвета
@@ -43,21 +42,35 @@ var renderCloud = function (ctx, color, coordX, coordY, width, height, shadow = 
   ctx.fillRect(coordinateX, coordinateY, width, height);
 };
 
-var renderCongratulation = function (ctx, text, fontData, coordinates) {
+var renderCongratulation = function (ctx, strings, fontData, coordinates) {
   ctx.fillStyle = fontData.color;
   ctx.font = fontData.size + ' ' + fontData.family;
   ctx.textBaseline = 'hanging';
-  ctx.fillText(text, coordinates.x, coordinates.y);
+  
+  var coordX = coordinates.x;
+  var coordY = coordinates.y;
+
+  strings.forEach(function (string) {
+    ctx.fillText(string, coordX, coordY);
+    coordY += CLOUD_PADDING;
+  });
 };
 
 window.renderStatistics = function (ctx, names, times) {
   renderCloud(ctx, SHADOW_COLOR, CLOUD_COORD_X, CLOUD_COORD_Y, CLOUD_WIDTH, CLOUD_HEIGHT, IS_SHADOW);
   renderCloud(ctx, CLOUD_COLOR, CLOUD_COORD_X, CLOUD_COORD_Y, CLOUD_WIDTH, CLOUD_HEIGHT);
+  
+  var strings = CONGRATULATION_TEXT.split('\n');
 
   renderCongratulation(
     ctx,
-    CLOUD_TEXT,
+    strings,
     {size: CLOUD_FONT_SIZE, family: CLOUD_FONT_FAMILY, color: TEXT_COLOR},
     {x: CLOUD_COORD_X + CLOUD_TEXT_PADDING, y: CLOUD_COORD_Y + CLOUD_PADDING}
   );
+
+  // Рисуем гистограмму
+  // for (var i = 0; i < names.length; i++) {
+    // Отрисовывем стобик
+  // }
 };
