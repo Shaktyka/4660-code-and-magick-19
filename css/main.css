@@ -1019,7 +1019,3 @@ input[type=radio]:checked + .review-mark-label
 
     opacity: 0;
 }
-
-canvas {
-    outline: 1px solid black;
-}
