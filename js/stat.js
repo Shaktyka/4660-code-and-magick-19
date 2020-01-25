@@ -38,11 +38,6 @@ var renderCloud = function (ctx, x, y, color) {
   ctx.fill();
 };
 
-// Генерация рандомного числа включительно
-var getRandomNumber = function (min, max) {
-  return min + Math.floor(Math.random() * (max + 1 - min));
-};
-
 // Поиск максимального значения массива
 var getMaxValue = function (array) {
   var maxValue = array[0];
