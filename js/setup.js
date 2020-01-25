@@ -2,7 +2,6 @@
 
 var WIZARDS_AMOUNT = 4;
 var wizards = [];
-var setup = document.querySelector('.setup');
 
 var names = [
   'Иван',
@@ -68,5 +67,3 @@ var getWizardsData = function (amount) {
 
 // Рендерим моковые данные
 getWizardsData(WIZARDS_AMOUNT);
-
-setup.classList.remove('hidden');
